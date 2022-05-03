@@ -14,15 +14,16 @@ namespace Veterinario
     {
         public PantallaPrincipal()
         {
+            
             InitializeComponent();
         }
-
+       
         private void PantallaPrincipal_Load(object sender, EventArgs e)
         {
 
         }
 
-
+        
         private void AñadirAnimal_Click(object sender, EventArgs e)
         {
             this.Close();

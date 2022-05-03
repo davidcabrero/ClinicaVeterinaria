@@ -17,6 +17,7 @@ namespace Veterinario
             InitializeComponent();
         }
 
+        Conexion conexion = new Conexion();
 
         private void botonVolver_Click_1(object sender, EventArgs e)
         {
@@ -25,28 +26,31 @@ namespace Veterinario
             pantallaprincipal.Show();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void botonAdd_Click(object sender, EventArgs e)
         {
-            //configuracion  de algunos parametros del openFileDialog
-            // directorio inicial donde se abrira
-            openFileDialog1.InitialDirectory = "C:\\";
-            // filtro de archivos.
-            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+            String opcionSexo = ""; //Depende del sexo del animal
 
-            // codigo para abrir el cuadro de dialogo
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (opcionMacho.Checked == true)
             {
-                try
-                {
-                    string str_RutaArchivo = openFileDialog1.FileName;
-                    textBox2.Text = str_RutaArchivo;
+                opcionSexo = "Macho";
+            }
+            if (opcionHembra.Checked == true)
+            {
+                opcionSexo = "Hembra";
+            }
 
-                }
-                catch (Exception)
-                {
+            String dniUsuario = VentanaLogin.usuario; //Cogemos el usuario que ha iniciado sesión.
 
-                    throw;
-                }
+            if (conexion.insertaMacota(codigoChip.Text, nombreMascota.Text, edadAnimal.Text, tipoAnimal.Text, observacionesAnimal.Text, dniUsuario, opcionSexo))
+            {
+                MessageBox.Show("Mascota Añadida"); //Se añade la mascota
+                this.Close();
+                PantallaPrincipal v = new PantallaPrincipal();
+                v.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error"); //Fallo
             }
         }
     }

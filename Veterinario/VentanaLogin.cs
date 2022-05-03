@@ -19,6 +19,8 @@ namespace Veterinario
             textBoxContraseña.PasswordChar = '•'; //No aparece la contraseña
         }
 
+        internal static string usuario;
+
         private void button1_Click(object sender, EventArgs e) //Botón para registrarse
         {
             VentanaRegistro ventanaregistro = new VentanaRegistro();
@@ -33,7 +35,9 @@ namespace Veterinario
             if (conexion.loginVeterinario(textBoxDNI.Text, textBoxContraseña.Text)) //Si el usuario y contraseña coinciden
             {
                 this.Hide();
+                usuario = textBoxDNI.Text;
                 PantallaPrincipal pantallaprincipal = new PantallaPrincipal();
+                
                 pantallaprincipal.Show();
             }
             else

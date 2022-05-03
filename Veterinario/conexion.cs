@@ -72,6 +72,34 @@ namespace Veterinario
                 return false;
             }
         }
+
+
+        //Registrar una nueva mascota
+        public Boolean insertaMacota(String codigoChip, String nombre, String edad, String tipo, String observaciones, String dni_usuario, String Sexo)
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("INSERT INTO mascota (codigoChip, nombre, edad, tipo, observaciones, dni_usuario, Sexo) VALUES (@codigoChip, @nombre, @edad, @tipo, @observaciones, @dni_usuario, @Sexo)", conexion); //datos a introducir, se introducen los string en los campos de la bbdd.
+                consulta.Parameters.AddWithValue("@codigoChip", codigoChip);
+                consulta.Parameters.AddWithValue("@nombre", nombre);
+                consulta.Parameters.AddWithValue("@edad", edad);
+                consulta.Parameters.AddWithValue("@tipo", tipo);
+                consulta.Parameters.AddWithValue("@observaciones", observaciones);
+                consulta.Parameters.AddWithValue("@dni_usuario", dni_usuario);
+                consulta.Parameters.AddWithValue("@Sexo", Sexo);
+
+                consulta.ExecuteNonQuery();
+
+                conexion.Close();
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                return false;
+            }
+        }
         
+
     }
 }
