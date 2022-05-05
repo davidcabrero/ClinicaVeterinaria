@@ -31,29 +31,36 @@ namespace Veterinario
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PantallaPrincipal));
             this.MisDatos = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.nombreCliente0 = new System.Windows.Forms.Label();
-            this.apellidoCliente0 = new System.Windows.Forms.Label();
-            this.CorreoElectronico0 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CorreoElectronico0 = new System.Windows.Forms.Label();
+            this.apellidoCliente0 = new System.Windows.Forms.Label();
+            this.nombreCliente0 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.Citas = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.label2 = new System.Windows.Forms.Label();
             this.Animales = new System.Windows.Forms.TabPage();
-            this.FotoAnimal1 = new System.Windows.Forms.PictureBox();
-            this.NombreAnimal = new System.Windows.Forms.Label();
-            this.edad = new System.Windows.Forms.Label();
-            this.edadAnimal1 = new System.Windows.Forms.Label();
+            this.observacionesLabel = new System.Windows.Forms.Label();
+            this.siguienteButton = new System.Windows.Forms.Button();
+            this.edadLabel = new System.Windows.Forms.Label();
+            this.sexoLabel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tipoLabel = new System.Windows.Forms.Label();
+            this.codigoLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.SexoAnimal1 = new System.Windows.Forms.Label();
+            this.nombreLabel = new System.Windows.Forms.Label();
             this.AñadirAnimal = new System.Windows.Forms.Button();
+            this.NombreAnimal = new System.Windows.Forms.Label();
             this.Clientes = new System.Windows.Forms.TabControl();
             this.Facturas = new System.Windows.Forms.TabPage();
             this.MisDatos.SuspendLayout();
             this.Citas.SuspendLayout();
             this.Animales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoAnimal1)).BeginInit();
             this.Clientes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,45 +79,15 @@ namespace Veterinario
             this.MisDatos.TabIndex = 3;
             this.MisDatos.Text = "Mis datos";
             // 
-            // label3
+            // button2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(240, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(337, 32);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "NOMBRE DEL CLIENTE";
-            // 
-            // nombreCliente0
-            // 
-            this.nombreCliente0.AutoSize = true;
-            this.nombreCliente0.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombreCliente0.Location = new System.Drawing.Point(34, 102);
-            this.nombreCliente0.Name = "nombreCliente0";
-            this.nombreCliente0.Size = new System.Drawing.Size(69, 17);
-            this.nombreCliente0.TabIndex = 6;
-            this.nombreCliente0.Text = "Nombre:";
-            // 
-            // apellidoCliente0
-            // 
-            this.apellidoCliente0.AutoSize = true;
-            this.apellidoCliente0.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.apellidoCliente0.Location = new System.Drawing.Point(34, 166);
-            this.apellidoCliente0.Name = "apellidoCliente0";
-            this.apellidoCliente0.Size = new System.Drawing.Size(71, 17);
-            this.apellidoCliente0.TabIndex = 7;
-            this.apellidoCliente0.Text = "Apellido:";
-            // 
-            // CorreoElectronico0
-            // 
-            this.CorreoElectronico0.AutoSize = true;
-            this.CorreoElectronico0.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CorreoElectronico0.Location = new System.Drawing.Point(34, 224);
-            this.CorreoElectronico0.Name = "CorreoElectronico0";
-            this.CorreoElectronico0.Size = new System.Drawing.Size(148, 17);
-            this.CorreoElectronico0.TabIndex = 8;
-            this.CorreoElectronico0.Text = "Correo Electrónico:";
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(322, 377);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(201, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "CAMBIAR CONTRASEÑA";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -122,15 +99,45 @@ namespace Veterinario
             this.label5.TabIndex = 9;
             this.label5.Text = "Dueño de:";
             // 
-            // button2
+            // CorreoElectronico0
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(322, 377);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(201, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "CAMBIAR CONTRASEÑA";
-            this.button2.UseVisualStyleBackColor = true;
+            this.CorreoElectronico0.AutoSize = true;
+            this.CorreoElectronico0.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CorreoElectronico0.Location = new System.Drawing.Point(34, 224);
+            this.CorreoElectronico0.Name = "CorreoElectronico0";
+            this.CorreoElectronico0.Size = new System.Drawing.Size(148, 17);
+            this.CorreoElectronico0.TabIndex = 8;
+            this.CorreoElectronico0.Text = "Correo Electrónico:";
+            // 
+            // apellidoCliente0
+            // 
+            this.apellidoCliente0.AutoSize = true;
+            this.apellidoCliente0.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apellidoCliente0.Location = new System.Drawing.Point(34, 166);
+            this.apellidoCliente0.Name = "apellidoCliente0";
+            this.apellidoCliente0.Size = new System.Drawing.Size(71, 17);
+            this.apellidoCliente0.TabIndex = 7;
+            this.apellidoCliente0.Text = "Apellido:";
+            // 
+            // nombreCliente0
+            // 
+            this.nombreCliente0.AutoSize = true;
+            this.nombreCliente0.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreCliente0.Location = new System.Drawing.Point(34, 102);
+            this.nombreCliente0.Name = "nombreCliente0";
+            this.nombreCliente0.Size = new System.Drawing.Size(69, 17);
+            this.nombreCliente0.TabIndex = 6;
+            this.nombreCliente0.Text = "Nombre:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(240, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(337, 32);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "NOMBRE DEL CLIENTE";
             // 
             // Citas
             // 
@@ -143,6 +150,12 @@ namespace Veterinario
             this.Citas.TabIndex = 2;
             this.Citas.Text = "Citas";
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(535, 21);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 3;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -153,23 +166,25 @@ namespace Veterinario
             this.label2.TabIndex = 2;
             this.label2.Text = "CITAS PRÓXIMAS";
             // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(535, 21);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 3;
-            // 
             // Animales
             // 
             this.Animales.BackColor = System.Drawing.Color.LightSeaGreen;
             this.Animales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Animales.Controls.Add(this.AñadirAnimal);
-            this.Animales.Controls.Add(this.SexoAnimal1);
+            this.Animales.Controls.Add(this.observacionesLabel);
+            this.Animales.Controls.Add(this.siguienteButton);
+            this.Animales.Controls.Add(this.edadLabel);
+            this.Animales.Controls.Add(this.sexoLabel);
+            this.Animales.Controls.Add(this.label12);
+            this.Animales.Controls.Add(this.label11);
+            this.Animales.Controls.Add(this.label10);
+            this.Animales.Controls.Add(this.label9);
+            this.Animales.Controls.Add(this.label8);
+            this.Animales.Controls.Add(this.tipoLabel);
+            this.Animales.Controls.Add(this.codigoLabel);
             this.Animales.Controls.Add(this.label1);
-            this.Animales.Controls.Add(this.edadAnimal1);
-            this.Animales.Controls.Add(this.edad);
+            this.Animales.Controls.Add(this.nombreLabel);
+            this.Animales.Controls.Add(this.AñadirAnimal);
             this.Animales.Controls.Add(this.NombreAnimal);
-            this.Animales.Controls.Add(this.FotoAnimal1);
             this.Animales.Location = new System.Drawing.Point(4, 25);
             this.Animales.Name = "Animales";
             this.Animales.Padding = new System.Windows.Forms.Padding(3);
@@ -177,16 +192,131 @@ namespace Veterinario
             this.Animales.TabIndex = 0;
             this.Animales.Text = "Animales";
             // 
-            // FotoAnimal1
+            // observacionesLabel
             // 
-            this.FotoAnimal1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.FotoAnimal1.Location = new System.Drawing.Point(8, 56);
-            this.FotoAnimal1.MaximumSize = new System.Drawing.Size(250, 250);
-            this.FotoAnimal1.MinimumSize = new System.Drawing.Size(250, 250);
-            this.FotoAnimal1.Name = "FotoAnimal1";
-            this.FotoAnimal1.Size = new System.Drawing.Size(250, 250);
-            this.FotoAnimal1.TabIndex = 2;
-            this.FotoAnimal1.TabStop = false;
+            this.observacionesLabel.Location = new System.Drawing.Point(83, 276);
+            this.observacionesLabel.Name = "observacionesLabel";
+            this.observacionesLabel.Size = new System.Drawing.Size(497, 130);
+            this.observacionesLabel.TabIndex = 23;
+            this.observacionesLabel.Text = "label15";
+            this.observacionesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // siguienteButton
+            // 
+            this.siguienteButton.Location = new System.Drawing.Point(634, 302);
+            this.siguienteButton.Name = "siguienteButton";
+            this.siguienteButton.Size = new System.Drawing.Size(121, 50);
+            this.siguienteButton.TabIndex = 22;
+            this.siguienteButton.Text = "Siguiente";
+            this.siguienteButton.UseVisualStyleBackColor = true;
+            this.siguienteButton.Click += new System.EventHandler(this.siguienteButton_Click);
+            // 
+            // edadLabel
+            // 
+            this.edadLabel.Location = new System.Drawing.Point(422, 144);
+            this.edadLabel.Name = "edadLabel";
+            this.edadLabel.Size = new System.Drawing.Size(158, 27);
+            this.edadLabel.TabIndex = 21;
+            this.edadLabel.Text = "label14";
+            // 
+            // sexoLabel
+            // 
+            this.sexoLabel.Location = new System.Drawing.Point(422, 106);
+            this.sexoLabel.Name = "sexoLabel";
+            this.sexoLabel.Size = new System.Drawing.Size(158, 27);
+            this.sexoLabel.TabIndex = 20;
+            this.sexoLabel.Text = "label13";
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(273, 249);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(153, 27);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Observaciones:";
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(367, 144);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(158, 27);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Edad:";
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(367, 106);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(158, 27);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Sexo:";
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(165, 133);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(106, 27);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Código Chip:";
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(165, 173);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 27);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Tipo:";
+            // 
+            // tipoLabel
+            // 
+            this.tipoLabel.Location = new System.Drawing.Point(215, 173);
+            this.tipoLabel.Name = "tipoLabel";
+            this.tipoLabel.Size = new System.Drawing.Size(158, 27);
+            this.tipoLabel.TabIndex = 14;
+            this.tipoLabel.Text = "label7";
+            // 
+            // codigoLabel
+            // 
+            this.codigoLabel.Location = new System.Drawing.Point(268, 132);
+            this.codigoLabel.Name = "codigoLabel";
+            this.codigoLabel.Size = new System.Drawing.Size(158, 27);
+            this.codigoLabel.TabIndex = 13;
+            this.codigoLabel.Text = "label6";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(165, 94);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 27);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Nombre:";
+            // 
+            // nombreLabel
+            // 
+            this.nombreLabel.Location = new System.Drawing.Point(239, 94);
+            this.nombreLabel.Name = "nombreLabel";
+            this.nombreLabel.Size = new System.Drawing.Size(158, 27);
+            this.nombreLabel.TabIndex = 11;
+            this.nombreLabel.Text = "label4";
+            this.nombreLabel.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // AñadirAnimal
+            // 
+            this.AñadirAnimal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AñadirAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AñadirAnimal.Location = new System.Drawing.Point(680, 27);
+            this.AñadirAnimal.Name = "AñadirAnimal";
+            this.AñadirAnimal.Size = new System.Drawing.Size(75, 48);
+            this.AñadirAnimal.TabIndex = 10;
+            this.AñadirAnimal.Text = "AÑADIR ANIMAL";
+            this.AñadirAnimal.UseVisualStyleBackColor = true;
+            this.AñadirAnimal.Click += new System.EventHandler(this.AñadirAnimal_Click);
             // 
             // NombreAnimal
             // 
@@ -195,59 +325,9 @@ namespace Veterinario
             this.NombreAnimal.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NombreAnimal.Location = new System.Drawing.Point(70, 12);
             this.NombreAnimal.Name = "NombreAnimal";
-            this.NombreAnimal.Size = new System.Drawing.Size(115, 31);
+            this.NombreAnimal.Size = new System.Drawing.Size(180, 31);
             this.NombreAnimal.TabIndex = 3;
-            this.NombreAnimal.Text = "Animal1";
-            // 
-            // edad
-            // 
-            this.edad.AutoSize = true;
-            this.edad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.edad.Location = new System.Drawing.Point(286, 60);
-            this.edad.Name = "edad";
-            this.edad.Size = new System.Drawing.Size(55, 17);
-            this.edad.TabIndex = 6;
-            this.edad.Text = "EDAD:";
-            // 
-            // edadAnimal1
-            // 
-            this.edadAnimal1.AutoSize = true;
-            this.edadAnimal1.Location = new System.Drawing.Point(347, 60);
-            this.edadAnimal1.Name = "edadAnimal1";
-            this.edadAnimal1.Size = new System.Drawing.Size(59, 17);
-            this.edadAnimal1.TabIndex = 7;
-            this.edadAnimal1.Text = "12 años";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(286, 123);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 17);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "SEXO:";
-            // 
-            // SexoAnimal1
-            // 
-            this.SexoAnimal1.AutoSize = true;
-            this.SexoAnimal1.Location = new System.Drawing.Point(350, 123);
-            this.SexoAnimal1.Name = "SexoAnimal1";
-            this.SexoAnimal1.Size = new System.Drawing.Size(50, 17);
-            this.SexoAnimal1.TabIndex = 9;
-            this.SexoAnimal1.Text = "Macho";
-            // 
-            // AñadirAnimal
-            // 
-            this.AñadirAnimal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AñadirAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AñadirAnimal.Location = new System.Drawing.Point(672, 29);
-            this.AñadirAnimal.Name = "AñadirAnimal";
-            this.AñadirAnimal.Size = new System.Drawing.Size(75, 48);
-            this.AñadirAnimal.TabIndex = 10;
-            this.AñadirAnimal.Text = "AÑADIR ANIMAL";
-            this.AñadirAnimal.UseVisualStyleBackColor = true;
-            this.AñadirAnimal.Click += new System.EventHandler(this.AñadirAnimal_Click);
+            this.NombreAnimal.Text = "Mis Mascotas";
             // 
             // Clientes
             // 
@@ -288,7 +368,6 @@ namespace Veterinario
             this.Citas.PerformLayout();
             this.Animales.ResumeLayout(false);
             this.Animales.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoAnimal1)).EndInit();
             this.Clientes.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -308,13 +387,21 @@ namespace Veterinario
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage Animales;
         private System.Windows.Forms.Button AñadirAnimal;
-        private System.Windows.Forms.Label SexoAnimal1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label edadAnimal1;
-        private System.Windows.Forms.Label edad;
         private System.Windows.Forms.Label NombreAnimal;
-        private System.Windows.Forms.PictureBox FotoAnimal1;
         private System.Windows.Forms.TabControl Clientes;
         private System.Windows.Forms.TabPage Facturas;
+        private System.Windows.Forms.Label edadLabel;
+        private System.Windows.Forms.Label sexoLabel;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label tipoLabel;
+        private System.Windows.Forms.Label codigoLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label nombreLabel;
+        private System.Windows.Forms.Button siguienteButton;
+        private System.Windows.Forms.Label observacionesLabel;
     }
 }

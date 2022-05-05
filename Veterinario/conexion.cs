@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,7 +100,24 @@ namespace Veterinario
                 return false;
             }
         }
-        
 
+        public DataTable getMascotasPorUser(String usuario)
+        {
+                try
+                {
+                    conexion.Open();
+                    MySqlCommand consulta = new MySqlCommand("SELECT * FROM mascota WHERE dni_usuario = @usuarioCliente", conexion);
+                    consulta.Parameters.AddWithValue("@usuarioCliente", usuario);
+                    MySqlDataReader resultado = consulta.ExecuteReader();
+                    DataTable datos = new DataTable();
+                    datos.Load(resultado);
+                    conexion.Close();
+                    return datos;
+                }
+                catch (MySqlException e)
+                {
+                    throw e;
+                }
+        }
     }
 }
