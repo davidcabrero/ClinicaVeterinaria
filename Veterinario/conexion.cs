@@ -103,12 +103,13 @@ namespace Veterinario
         }
         public Boolean insertaPerfil(int numPerfil, String dniUsuario)
         {
+            //Para añadir un perfil (mascota) al usuario y actualizar el número de mascotas
             try
             {
                 conexion.Open();
                 MySqlCommand consulta = new MySqlCommand("UPDATE usuario SET perfil = @numPerfil WHERE DNI = @dniUsuario", conexion); //datos a introducir.
                 consulta.Parameters.AddWithValue("@numPerfil", numPerfil);
-                consulta.Parameters.AddWithValue("@dni_usuario", dniUsuario);
+                consulta.Parameters.AddWithValue("@dniusuario", dniUsuario);
 
                 consulta.ExecuteNonQuery();
 

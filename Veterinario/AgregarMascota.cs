@@ -47,8 +47,8 @@ namespace Veterinario
             int idMascotaUser = 0;
 
             misIdMascota = conexion.getMascotasPorUser(dniUsuario); //Para guardar en un int el numero de la mascota del usuario
-            idMascotaUser = misIdMascota.Rows.Count;
-            idMascotaUser++;
+            idMascotaUser = misIdMascota.Rows.Count; //Se cuentan el número de mascotas del usuario
+            idMascotaUser++; //Se suma una mascota al usuario
 
             if (conexion.insertaMacota(codigoChip.Text, nombreMascota.Text, edadAnimal.Text, tipoAnimal.Text, observacionesAnimal.Text, dniUsuario, opcionSexo, idMascotaUser))
             {
@@ -61,7 +61,7 @@ namespace Veterinario
             {
                 MessageBox.Show("Error"); //Fallo
             }
-            conexion.insertaPerfil(idMascotaUser, dniUsuario); //Se cambia el numero de perfiles
+            conexion.insertaPerfil(idMascotaUser, dniUsuario); //Se cambia el numero de perfiles del usuario
         }
     }
 }
