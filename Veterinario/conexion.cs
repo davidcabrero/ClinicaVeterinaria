@@ -122,7 +122,7 @@ namespace Veterinario
             }
         }
 
-        public DataTable getMascotasPorUser(String usuario)
+        public DataTable getMascotasPorUser(String usuario) //Datos de mascotas
         {
                 try
                 {
@@ -140,7 +140,7 @@ namespace Veterinario
                     throw e;
                 }
         }
-        public DataTable getMascotasPorId(String usuario, int id)
+        public DataTable getMascotasPorId(String usuario, int id) //Sacar mascotas según usuario y id mascota del usuario
         {
             try
             {

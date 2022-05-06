@@ -58,6 +58,7 @@ namespace Veterinario
             this.NombreAnimal = new System.Windows.Forms.Label();
             this.Clientes = new System.Windows.Forms.TabControl();
             this.Facturas = new System.Windows.Forms.TabPage();
+            this.Anterior = new System.Windows.Forms.Button();
             this.MisDatos.SuspendLayout();
             this.Citas.SuspendLayout();
             this.Animales.SuspendLayout();
@@ -170,6 +171,7 @@ namespace Veterinario
             // 
             this.Animales.BackColor = System.Drawing.Color.LightSeaGreen;
             this.Animales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Animales.Controls.Add(this.Anterior);
             this.Animales.Controls.Add(this.observacionesLabel);
             this.Animales.Controls.Add(this.siguienteButton);
             this.Animales.Controls.Add(this.edadLabel);
@@ -203,9 +205,9 @@ namespace Veterinario
             // 
             // siguienteButton
             // 
-            this.siguienteButton.Location = new System.Drawing.Point(634, 302);
+            this.siguienteButton.Location = new System.Drawing.Point(676, 302);
             this.siguienteButton.Name = "siguienteButton";
-            this.siguienteButton.Size = new System.Drawing.Size(121, 50);
+            this.siguienteButton.Size = new System.Drawing.Size(79, 50);
             this.siguienteButton.TabIndex = 22;
             this.siguienteButton.Text = "Siguiente";
             this.siguienteButton.UseVisualStyleBackColor = true;
@@ -351,6 +353,16 @@ namespace Veterinario
             this.Facturas.TabIndex = 4;
             this.Facturas.Text = "Facturas";
             // 
+            // Anterior
+            // 
+            this.Anterior.Location = new System.Drawing.Point(586, 302);
+            this.Anterior.Name = "Anterior";
+            this.Anterior.Size = new System.Drawing.Size(78, 50);
+            this.Anterior.TabIndex = 24;
+            this.Anterior.Text = "Anterior";
+            this.Anterior.UseVisualStyleBackColor = true;
+            this.Anterior.Click += new System.EventHandler(this.Anterior_Click);
+            // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -403,5 +415,6 @@ namespace Veterinario
         private System.Windows.Forms.Label nombreLabel;
         private System.Windows.Forms.Button siguienteButton;
         private System.Windows.Forms.Label observacionesLabel;
+        private System.Windows.Forms.Button Anterior;
     }
 }
