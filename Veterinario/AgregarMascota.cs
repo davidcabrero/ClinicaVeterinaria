@@ -11,6 +11,7 @@ using System.Windows.Forms;
 namespace Veterinario
 {
     public partial class AgregarMascota : Form
+
     {
         public AgregarMascota()
         {
@@ -18,6 +19,8 @@ namespace Veterinario
         }
 
         Conexion conexion = new Conexion();
+        DataTable misPerfiles = new DataTable();
+        DataTable misIdMascota = new DataTable();
 
         private void botonVolver_Click_1(object sender, EventArgs e)
         {
@@ -40,18 +43,25 @@ namespace Veterinario
             }
 
             String dniUsuario = VentanaLogin.usuario; //Cogemos el usuario que ha iniciado sesión.
+            
+            int idMascotaUser = 0;
 
-            if (conexion.insertaMacota(codigoChip.Text, nombreMascota.Text, edadAnimal.Text, tipoAnimal.Text, observacionesAnimal.Text, dniUsuario, opcionSexo))
+            misIdMascota = conexion.getMascotasPorUser(dniUsuario); //Para guardar en un int el numero de la mascota del usuario
+            idMascotaUser = misIdMascota.Rows.Count;
+            idMascotaUser++;
+
+            if (conexion.insertaMacota(codigoChip.Text, nombreMascota.Text, edadAnimal.Text, tipoAnimal.Text, observacionesAnimal.Text, dniUsuario, opcionSexo, idMascotaUser))
             {
                 MessageBox.Show("Mascota Añadida"); //Se añade la mascota
                 this.Close();
                 PantallaPrincipal v = new PantallaPrincipal();
                 v.Show();
-            }
+            }          
             else
             {
                 MessageBox.Show("Error"); //Fallo
             }
+            conexion.insertaPerfil(idMascotaUser, dniUsuario); //Se cambia el numero de perfiles
         }
     }
 }

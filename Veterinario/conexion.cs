@@ -76,12 +76,12 @@ namespace Veterinario
 
 
         //Registrar una nueva mascota
-        public Boolean insertaMacota(String codigoChip, String nombre, String edad, String tipo, String observaciones, String dni_usuario, String Sexo)
+        public Boolean insertaMacota(String codigoChip, String nombre, String edad, String tipo, String observaciones, String dni_usuario, String Sexo, int idMascotaUser)
         {
             try
             {
                 conexion.Open();
-                MySqlCommand consulta = new MySqlCommand("INSERT INTO mascota (codigoChip, nombre, edad, tipo, observaciones, dni_usuario, Sexo) VALUES (@codigoChip, @nombre, @edad, @tipo, @observaciones, @dni_usuario, @Sexo)", conexion); //datos a introducir, se introducen los string en los campos de la bbdd.
+                MySqlCommand consulta = new MySqlCommand("INSERT INTO mascota (codigoChip, nombre, edad, tipo, observaciones, dni_usuario, Sexo, idMascotaUser) VALUES (@codigoChip, @nombre, @edad, @tipo, @observaciones, @dni_usuario, @Sexo, @idMascotaUser)", conexion); //datos a introducir, se introducen los string en los campos de la bbdd.
                 consulta.Parameters.AddWithValue("@codigoChip", codigoChip);
                 consulta.Parameters.AddWithValue("@nombre", nombre);
                 consulta.Parameters.AddWithValue("@edad", edad);
@@ -89,6 +89,26 @@ namespace Veterinario
                 consulta.Parameters.AddWithValue("@observaciones", observaciones);
                 consulta.Parameters.AddWithValue("@dni_usuario", dni_usuario);
                 consulta.Parameters.AddWithValue("@Sexo", Sexo);
+                consulta.Parameters.AddWithValue("@idMascotaUser", idMascotaUser);
+
+                consulta.ExecuteNonQuery();
+
+                conexion.Close();
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                return false;
+            }
+        }
+        public Boolean insertaPerfil(int numPerfil, String dniUsuario)
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("UPDATE usuario SET perfil = @numPerfil WHERE DNI = @dniUsuario", conexion); //datos a introducir.
+                consulta.Parameters.AddWithValue("@numPerfil", numPerfil);
+                consulta.Parameters.AddWithValue("@dni_usuario", dniUsuario);
 
                 consulta.ExecuteNonQuery();
 
