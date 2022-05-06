@@ -14,15 +14,18 @@ namespace Veterinario
     {
         Conexion conexion = new Conexion();
         DataTable misMascotas = new DataTable();
+        DataTable misIdMascota = new DataTable();
         public PantallaPrincipal()
         {
             InitializeComponent();         
         }
+
+        int idActual = 1;
        
         private void PantallaPrincipal_Load(object sender, EventArgs e)
         {
             String user = VentanaLogin.usuario;
-            misMascotas = conexion.getMascotasPorUser(user);
+            misMascotas = conexion.getMascotasPorId(user, idActual);
             nombreLabel.Text = misMascotas.Rows[0]["nombre"].ToString();
             codigoLabel.Text = misMascotas.Rows[0]["codigoChip"].ToString();
             tipoLabel.Text = misMascotas.Rows[0]["tipo"].ToString();
@@ -46,14 +49,23 @@ namespace Veterinario
 
         private void siguienteButton_Click(object sender, EventArgs e)
         {
-            String user = VentanaLogin.usuario;
-            misMascotas = conexion.getMascotasPorUser(user);
-            nombreLabel.Text = misMascotas.Rows[0]["nombre"].ToString();
-            codigoLabel.Text = misMascotas.Rows[0]["codigoChip"].ToString();
-            tipoLabel.Text = misMascotas.Rows[0]["tipo"].ToString();
-            edadLabel.Text = misMascotas.Rows[0]["edad"].ToString();
-            sexoLabel.Text = misMascotas.Rows[0]["sexo"].ToString();
-            observacionesLabel.Text = misMascotas.Rows[0]["observaciones"].ToString();
+            int idMascotaUser = 0;
+            String dniUsuario = VentanaLogin.usuario;
+
+            misIdMascota = conexion.getMascotasPorUser(dniUsuario); //Para guardar en un int el numero de la mascota del usuario
+            idMascotaUser = misIdMascota.Rows.Count; //Se cuentan el número de mascotas del usuario
+
+            idActual++;
+            if (idActual <= idMascotaUser) {
+                String user = VentanaLogin.usuario;
+                misMascotas = conexion.getMascotasPorId(user, idActual);
+                nombreLabel.Text = misMascotas.Rows[0]["nombre"].ToString();
+                codigoLabel.Text = misMascotas.Rows[0]["codigoChip"].ToString();
+                tipoLabel.Text = misMascotas.Rows[0]["tipo"].ToString();
+                edadLabel.Text = misMascotas.Rows[0]["edad"].ToString();
+                sexoLabel.Text = misMascotas.Rows[0]["sexo"].ToString();
+                observacionesLabel.Text = misMascotas.Rows[0]["observaciones"].ToString();
+            }
 
         }
     }

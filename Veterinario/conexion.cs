@@ -140,5 +140,24 @@ namespace Veterinario
                     throw e;
                 }
         }
+        public DataTable getMascotasPorId(String usuario, int id)
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM mascota WHERE dni_usuario = @usuarioCliente AND idMascotaUser = @id", conexion);
+                consulta.Parameters.AddWithValue("@usuarioCliente", usuario);
+                consulta.Parameters.AddWithValue("@id", id);
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable datos = new DataTable();
+                datos.Load(resultado);
+                conexion.Close();
+                return datos;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
     }
 }
