@@ -329,7 +329,7 @@ namespace Veterinario
             try
             {
                 conexion.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM mascota)", conexion);
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM mascota", conexion);
                 MySqlDataReader resultado = consulta.ExecuteReader();
                 DataTable datos = new DataTable();
                 datos.Load(resultado);

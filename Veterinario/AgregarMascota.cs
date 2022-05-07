@@ -51,7 +51,7 @@ namespace Veterinario
             idMascotaUser = misIdMascota.Rows.Count; //Se cuentan el número de mascotas del usuario
             idMascotaUser++; //Se suma una mascota al usuario
             check = conexion.getAllMascotas();
-            if ((codigoChip.Text) != (check.Rows[0]["codigoChip"].ToString())) //Siempre que el codigoChip no esté cogida ya.
+            if ((codigoChip.Text) != (check.Rows[0]["codigoChip"].ToString())) //Siempre que el codigoChip no esté cogido ya.
             {
                 if (conexion.insertaMacota(codigoChip.Text, nombreMascota.Text, edadAnimal.Text, tipoAnimal.Text, observacionesAnimal.Text, dniUsuario, opcionSexo, idMascotaUser))
                 {
