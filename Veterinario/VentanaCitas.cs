@@ -15,6 +15,8 @@ namespace Veterinario
         public VentanaCitas()
         {
             InitializeComponent();
+            fechaCita.Format = DateTimePickerFormat.Custom;
+            fechaCita.CustomFormat = "dd/MM/yyyy HH:mm:ss"; //Día-mes-año y hora en formato 24 horas
         }
 
         Conexion conexion = new Conexion();
@@ -35,7 +37,7 @@ namespace Veterinario
             idUserCitas = misCitas.Rows.Count;
             idUserCitas++;
 
-            if (conexion.insertaCita(codigo.Text, dniUsuario, fecha.Text, causa.Text, idUserCitas))
+            if (conexion.insertaCita(codigo.Text, dniUsuario, fechaCita.Text, causa.Text, idUserCitas))
             {
                 MessageBox.Show("Cita Añadida"); //Se añade la cita
                 this.Close();

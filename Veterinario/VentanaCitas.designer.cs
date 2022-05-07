@@ -33,15 +33,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cancelar = new System.Windows.Forms.Button();
             this.causa = new System.Windows.Forms.TextBox();
-            this.fecha = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.codigo = new System.Windows.Forms.TextBox();
+            this.fechaCita = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // aceptar
             // 
             this.aceptar.Location = new System.Drawing.Point(793, 412);
-            this.aceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aceptar.Margin = new System.Windows.Forms.Padding(4);
             this.aceptar.Name = "aceptar";
             this.aceptar.Size = new System.Drawing.Size(179, 90);
             this.aceptar.TabIndex = 0;
@@ -54,12 +54,12 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(51, 79);
+            this.label1.Location = new System.Drawing.Point(51, 90);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 50);
+            this.label1.Size = new System.Drawing.Size(183, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "introduce la fecha\r\n(Año-mes-día)\r\n";
+            this.label1.Text = "introduce la fecha";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
@@ -67,7 +67,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(51, 196);
+            this.label3.Location = new System.Drawing.Point(51, 227);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(188, 25);
@@ -77,7 +77,7 @@
             // cancelar
             // 
             this.cancelar.Location = new System.Drawing.Point(575, 412);
-            this.cancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(141, 90);
             this.cancelar.TabIndex = 7;
@@ -87,26 +87,18 @@
             // 
             // causa
             // 
-            this.causa.Location = new System.Drawing.Point(372, 200);
+            this.causa.Location = new System.Drawing.Point(372, 231);
             this.causa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.causa.Name = "causa";
             this.causa.Size = new System.Drawing.Size(599, 22);
             this.causa.TabIndex = 13;
-            // 
-            // fecha
-            // 
-            this.fecha.Location = new System.Drawing.Point(372, 93);
-            this.fecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.fecha.Name = "fecha";
-            this.fecha.Size = new System.Drawing.Size(599, 22);
-            this.fecha.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(51, 282);
+            this.label4.Location = new System.Drawing.Point(51, 313);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(170, 25);
@@ -115,11 +107,18 @@
             // 
             // codigo
             // 
-            this.codigo.Location = new System.Drawing.Point(373, 285);
+            this.codigo.Location = new System.Drawing.Point(373, 316);
             this.codigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.codigo.Name = "codigo";
             this.codigo.Size = new System.Drawing.Size(599, 22);
             this.codigo.TabIndex = 16;
+            // 
+            // fechaCita
+            // 
+            this.fechaCita.Location = new System.Drawing.Point(373, 93);
+            this.fechaCita.Name = "fechaCita";
+            this.fechaCita.Size = new System.Drawing.Size(598, 22);
+            this.fechaCita.TabIndex = 17;
             // 
             // VentanaCitas
             // 
@@ -127,15 +126,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.fechaCita);
             this.Controls.Add(this.codigo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.fecha);
             this.Controls.Add(this.causa);
             this.Controls.Add(this.cancelar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.aceptar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VentanaCitas";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -150,8 +149,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button cancelar;
         private System.Windows.Forms.TextBox causa;
-        private System.Windows.Forms.TextBox fecha;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox codigo;
+        private System.Windows.Forms.DateTimePicker fechaCita;
     }
 }
