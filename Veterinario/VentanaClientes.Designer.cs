@@ -38,9 +38,19 @@ namespace Veterinario
             this.nombreCliente0 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Citas = new System.Windows.Forms.TabPage();
+            this.sigCita = new System.Windows.Forms.Button();
+            this.antCita = new System.Windows.Forms.Button();
+            this.causaLabel = new System.Windows.Forms.Label();
+            this.fechaLabel = new System.Windows.Forms.Label();
+            this.mascotaLabel = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.addCita = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label2 = new System.Windows.Forms.Label();
             this.Animales = new System.Windows.Forms.TabPage();
+            this.Anterior = new System.Windows.Forms.Button();
             this.observacionesLabel = new System.Windows.Forms.Label();
             this.siguienteButton = new System.Windows.Forms.Button();
             this.edadLabel = new System.Windows.Forms.Label();
@@ -58,7 +68,6 @@ namespace Veterinario
             this.NombreAnimal = new System.Windows.Forms.Label();
             this.Clientes = new System.Windows.Forms.TabControl();
             this.Facturas = new System.Windows.Forms.TabPage();
-            this.Anterior = new System.Windows.Forms.Button();
             this.MisDatos.SuspendLayout();
             this.Citas.SuspendLayout();
             this.Animales.SuspendLayout();
@@ -143,6 +152,15 @@ namespace Veterinario
             // Citas
             // 
             this.Citas.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.Citas.Controls.Add(this.sigCita);
+            this.Citas.Controls.Add(this.antCita);
+            this.Citas.Controls.Add(this.causaLabel);
+            this.Citas.Controls.Add(this.fechaLabel);
+            this.Citas.Controls.Add(this.mascotaLabel);
+            this.Citas.Controls.Add(this.label13);
+            this.Citas.Controls.Add(this.label6);
+            this.Citas.Controls.Add(this.label4);
+            this.Citas.Controls.Add(this.addCita);
             this.Citas.Controls.Add(this.monthCalendar1);
             this.Citas.Controls.Add(this.label2);
             this.Citas.Location = new System.Drawing.Point(4, 25);
@@ -150,6 +168,90 @@ namespace Veterinario
             this.Citas.Size = new System.Drawing.Size(792, 426);
             this.Citas.TabIndex = 2;
             this.Citas.Text = "Citas";
+            // 
+            // sigCita
+            // 
+            this.sigCita.Location = new System.Drawing.Point(265, 357);
+            this.sigCita.Name = "sigCita";
+            this.sigCita.Size = new System.Drawing.Size(93, 38);
+            this.sigCita.TabIndex = 14;
+            this.sigCita.Text = "Siguiente";
+            this.sigCita.UseVisualStyleBackColor = true;
+            this.sigCita.Click += new System.EventHandler(this.sigCita_Click);
+            // 
+            // antCita
+            // 
+            this.antCita.Location = new System.Drawing.Point(151, 357);
+            this.antCita.Name = "antCita";
+            this.antCita.Size = new System.Drawing.Size(95, 38);
+            this.antCita.TabIndex = 13;
+            this.antCita.Text = "Anterior";
+            this.antCita.UseVisualStyleBackColor = true;
+            this.antCita.Click += new System.EventHandler(this.antCita_Click);
+            // 
+            // causaLabel
+            // 
+            this.causaLabel.Location = new System.Drawing.Point(25, 228);
+            this.causaLabel.Name = "causaLabel";
+            this.causaLabel.Size = new System.Drawing.Size(482, 114);
+            this.causaLabel.TabIndex = 12;
+            this.causaLabel.Text = "label17";
+            this.causaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.causaLabel.Click += new System.EventHandler(this.label17_Click);
+            // 
+            // fechaLabel
+            // 
+            this.fechaLabel.Location = new System.Drawing.Point(139, 129);
+            this.fechaLabel.Name = "fechaLabel";
+            this.fechaLabel.Size = new System.Drawing.Size(368, 17);
+            this.fechaLabel.TabIndex = 10;
+            this.fechaLabel.Text = "label15";
+            // 
+            // mascotaLabel
+            // 
+            this.mascotaLabel.Location = new System.Drawing.Point(161, 91);
+            this.mascotaLabel.Name = "mascotaLabel";
+            this.mascotaLabel.Size = new System.Drawing.Size(346, 17);
+            this.mascotaLabel.TabIndex = 9;
+            this.mascotaLabel.Text = "label14";
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(31, 190);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(476, 25);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Causa:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(50, 129);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 17);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Fecha:";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(50, 91);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 23);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Mascota:";
+            // 
+            // addCita
+            // 
+            this.addCita.Location = new System.Drawing.Point(580, 283);
+            this.addCita.Name = "addCita";
+            this.addCita.Size = new System.Drawing.Size(127, 76);
+            this.addCita.TabIndex = 4;
+            this.addCita.Text = "Añadir Cita";
+            this.addCita.UseVisualStyleBackColor = true;
+            this.addCita.Click += new System.EventHandler(this.addCita_Click);
             // 
             // monthCalendar1
             // 
@@ -193,6 +295,16 @@ namespace Veterinario
             this.Animales.Size = new System.Drawing.Size(792, 426);
             this.Animales.TabIndex = 0;
             this.Animales.Text = "Animales";
+            // 
+            // Anterior
+            // 
+            this.Anterior.Location = new System.Drawing.Point(586, 302);
+            this.Anterior.Name = "Anterior";
+            this.Anterior.Size = new System.Drawing.Size(78, 50);
+            this.Anterior.TabIndex = 24;
+            this.Anterior.Text = "Anterior";
+            this.Anterior.UseVisualStyleBackColor = true;
+            this.Anterior.Click += new System.EventHandler(this.Anterior_Click);
             // 
             // observacionesLabel
             // 
@@ -353,16 +465,6 @@ namespace Veterinario
             this.Facturas.TabIndex = 4;
             this.Facturas.Text = "Facturas";
             // 
-            // Anterior
-            // 
-            this.Anterior.Location = new System.Drawing.Point(586, 302);
-            this.Anterior.Name = "Anterior";
-            this.Anterior.Size = new System.Drawing.Size(78, 50);
-            this.Anterior.TabIndex = 24;
-            this.Anterior.Text = "Anterior";
-            this.Anterior.UseVisualStyleBackColor = true;
-            this.Anterior.Click += new System.EventHandler(this.Anterior_Click);
-            // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -416,5 +518,14 @@ namespace Veterinario
         private System.Windows.Forms.Button siguienteButton;
         private System.Windows.Forms.Label observacionesLabel;
         private System.Windows.Forms.Button Anterior;
+        private System.Windows.Forms.Button addCita;
+        private System.Windows.Forms.Label causaLabel;
+        private System.Windows.Forms.Label fechaLabel;
+        private System.Windows.Forms.Label mascotaLabel;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button sigCita;
+        private System.Windows.Forms.Button antCita;
     }
 }

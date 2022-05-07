@@ -159,5 +159,91 @@ namespace Veterinario
                 throw e;
             }
         }
+
+        public Boolean insertaCita(String codigoMascota, String dni_usuario, String fecha, String causa, int idCitasUser)
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("INSERT INTO citas (codigo_mascota, codigo_usuario, fecha, causa, idCitasUser) VALUES (@codigoMascota, @dni_usuario, @fecha, @causa, @idCitasUser)", conexion); //datos a introducir, se introducen los string en los campos de la bbdd.
+                consulta.Parameters.AddWithValue("@codigoMascota", codigoMascota);
+                consulta.Parameters.AddWithValue("@fecha", fecha);
+                consulta.Parameters.AddWithValue("@causa", causa);
+                consulta.Parameters.AddWithValue("@idCitasUser", idCitasUser);
+                consulta.Parameters.AddWithValue("@dni_usuario", dni_usuario);
+
+
+                consulta.ExecuteNonQuery();
+
+                conexion.Close();
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine(e.Message.ToString());
+                return false;
+
+            }
+        }
+
+        public DataTable getTodoCitasPorUser(String usuario)
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM citas WHERE codigo_usuario = @usuarioCliente", conexion);
+                consulta.Parameters.AddWithValue("@usuarioCliente", usuario);
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable datos = new DataTable();
+                datos.Load(resultado);
+                conexion.Close();
+                return datos;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+
+        public DataTable getCitasPorId(String usuario, int id) //Sacar citas según usuario e id de cita del usuario
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM citas WHERE codigo_usuario = @usuarioCliente AND idCitasUser = @id", conexion);
+                consulta.Parameters.AddWithValue("@usuarioCliente", usuario);
+                consulta.Parameters.AddWithValue("@id", id);
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable datos = new DataTable();
+                datos.Load(resultado);
+                conexion.Close();
+                return datos;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+
+        public DataTable getNombreCitasPorId(String usuario, int id) //Sacar el nombre de la mascota de la cita
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM mascota WHERE codigoChip = (SELECT codigo_mascota FROM citas WHERE codigo_usuario = @usuario AND idCitasUser = @id)", conexion);
+                consulta.Parameters.AddWithValue("@usuario", usuario);
+                consulta.Parameters.AddWithValue("@id", id);
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable datos = new DataTable();
+                datos.Load(resultado);
+                conexion.Close();
+                return datos;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
     }
+
 }

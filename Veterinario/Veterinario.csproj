@@ -99,6 +99,12 @@
       <DependentUpon>AgregarMascota.cs</DependentUpon>
     </Compile>
     <Compile Include="conexion.cs" />
+    <Compile Include="VentanaCitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaCitas.designer.cs">
+      <DependentUpon>VentanaCitas.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentanaClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AgregarMascota.resx">
       <DependentUpon>AgregarMascota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaCitas.resx">
+      <DependentUpon>VentanaCitas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaClientes.resx">
       <DependentUpon>VentanaClientes.cs</DependentUpon>

@@ -15,12 +15,16 @@ namespace Veterinario
         Conexion conexion = new Conexion();
         DataTable misMascotas = new DataTable();
         DataTable misIdMascota = new DataTable();
+        DataTable misIdCita = new DataTable();
+        DataTable verCitas = new DataTable();
+        DataTable verNombre = new DataTable();
         public PantallaPrincipal()
         {
             InitializeComponent();         
         }
 
         int idActual = 1;
+        int idCita = 1;
        
         private void PantallaPrincipal_Load(object sender, EventArgs e)
         {
@@ -32,6 +36,13 @@ namespace Veterinario
             edadLabel.Text = misMascotas.Rows[0]["edad"].ToString();
             sexoLabel.Text = misMascotas.Rows[0]["sexo"].ToString();
             observacionesLabel.Text = misMascotas.Rows[0]["observaciones"].ToString();
+
+            verCitas = conexion.getCitasPorId(user, idCita);
+            fechaLabel.Text = verCitas.Rows[0]["fecha"].ToString();
+            causaLabel.Text = verCitas.Rows[0]["causa"].ToString();
+
+            verNombre = conexion.getNombreCitasPorId(user, idCita);
+            mascotaLabel.Text = verNombre.Rows[0]["nombre"].ToString();
         }
 
         
@@ -48,6 +59,7 @@ namespace Veterinario
         }
 
         int idMascotaUser = 0;
+        int idCitaUser = 0;
         String dniUsuario = VentanaLogin.usuario;
 
         private void siguienteButton_Click(object sender, EventArgs e) //Siguiente mascota
@@ -84,6 +96,52 @@ namespace Veterinario
                 edadLabel.Text = misMascotas.Rows[0]["edad"].ToString();
                 sexoLabel.Text = misMascotas.Rows[0]["sexo"].ToString();
                 observacionesLabel.Text = misMascotas.Rows[0]["observaciones"].ToString();
+            }
+        }
+
+        private void addCita_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VentanaCitas ventanacitas = new VentanaCitas();
+            ventanacitas.Show();
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void antCita_Click(object sender, EventArgs e)
+        {
+            misIdCita = conexion.getTodoCitasPorUser(dniUsuario); //Para guardar en un int el numero de la cita del usuario
+            idCitaUser = misIdMascota.Rows.Count; //se cuenta el num de citas del usuario
+            idCita--;
+            if (idCita > 0)
+            {
+                String user = VentanaLogin.usuario;
+                verCitas = conexion.getCitasPorId(user, idCita);
+                fechaLabel.Text = verCitas.Rows[0]["fecha"].ToString();
+                causaLabel.Text = verCitas.Rows[0]["causa"].ToString();
+
+                verNombre = conexion.getNombreCitasPorId(user, idCita);
+                mascotaLabel.Text = verNombre.Rows[0]["nombre"].ToString();
+            }
+        }
+
+        private void sigCita_Click(object sender, EventArgs e)
+        {
+            misIdCita = conexion.getTodoCitasPorUser(dniUsuario); //Para guardar en un int el numero de la cita del usuario
+            idCitaUser = misIdMascota.Rows.Count; //se cuenta el num de citas del usuario
+            idCita++;
+            if (idCita <= idCitaUser)
+            {
+                String user = VentanaLogin.usuario;
+                verCitas = conexion.getCitasPorId(user, idCita);
+                fechaLabel.Text = verCitas.Rows[0]["fecha"].ToString();
+                causaLabel.Text = verCitas.Rows[0]["causa"].ToString();
+
+                verNombre = conexion.getNombreCitasPorId(user, idCita);
+                mascotaLabel.Text = verNombre.Rows[0]["nombre"].ToString();
             }
         }
     }
