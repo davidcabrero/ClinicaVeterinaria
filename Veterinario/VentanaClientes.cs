@@ -28,6 +28,7 @@ namespace Veterinario
        
         private void PantallaPrincipal_Load(object sender, EventArgs e)
         {
+            //Se muestran los datos de la primera mascota
             String user = VentanaLogin.usuario;
             misMascotas = conexion.getMascotasPorId(user, idActual);
             nombreLabel.Text = misMascotas.Rows[0]["nombre"].ToString();
@@ -37,6 +38,7 @@ namespace Veterinario
             sexoLabel.Text = misMascotas.Rows[0]["sexo"].ToString();
             observacionesLabel.Text = misMascotas.Rows[0]["observaciones"].ToString();
 
+            //Se muestran los datos de la primera cita
             verCitas = conexion.getCitasPorId(user, idCita);
             fechaLabel.Text = verCitas.Rows[0]["fecha"].ToString();
             causaLabel.Text = verCitas.Rows[0]["causa"].ToString();
@@ -46,7 +48,7 @@ namespace Veterinario
         }
 
         
-        private void AñadirAnimal_Click(object sender, EventArgs e)
+        private void AñadirAnimal_Click(object sender, EventArgs e) //Se abre la ventana de añadir mascota
         {
             this.Close();
             AgregarMascota agregarmascota = new AgregarMascota();
@@ -99,7 +101,7 @@ namespace Veterinario
             }
         }
 
-        private void addCita_Click(object sender, EventArgs e)
+        private void addCita_Click(object sender, EventArgs e) //Se abre la ventana para añadir cita
         {
             this.Hide();
             VentanaCitas ventanacitas = new VentanaCitas();
@@ -111,10 +113,10 @@ namespace Veterinario
 
         }
 
-        private void antCita_Click(object sender, EventArgs e)
+        private void antCita_Click(object sender, EventArgs e) //Mostrar cita anterior
         {
-            misIdCita = conexion.getTodoCitasPorUser(dniUsuario); //Para guardar en un int el numero de la cita del usuario
-            idCitaUser = misIdMascota.Rows.Count; //se cuenta el num de citas del usuario
+            misIdCita = conexion.getTodoCitasPorUser(dniUsuario); //Para guardar en un int el número de la cita del usuario
+            idCitaUser = misIdMascota.Rows.Count; //se cuenta el número de citas del usuario
             idCita--;
             if (idCita > 0)
             {
@@ -128,7 +130,7 @@ namespace Veterinario
             }
         }
 
-        private void sigCita_Click(object sender, EventArgs e)
+        private void sigCita_Click(object sender, EventArgs e) //Mostrar siguiente cita
         {
             misIdCita = conexion.getTodoCitasPorUser(dniUsuario); //Para guardar en un int el numero de la cita del usuario
             idCitaUser = misIdMascota.Rows.Count; //se cuenta el num de citas del usuario

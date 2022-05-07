@@ -205,6 +205,24 @@ namespace Veterinario
             }
         }
 
+        public DataTable getFecha() //Para que solo 1 usuario tenga una fecha exacta.
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM citas", conexion);
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable datos = new DataTable();
+                datos.Load(resultado);
+                conexion.Close();
+                return datos;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+
         public DataTable getCitasPorId(String usuario, int id) //Sacar citas según usuario e id de cita del usuario
         {
             try

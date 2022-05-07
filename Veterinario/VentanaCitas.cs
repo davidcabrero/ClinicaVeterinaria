@@ -21,6 +21,7 @@ namespace Veterinario
 
         Conexion conexion = new Conexion();
         DataTable misCitas = new DataTable();
+        DataTable fechaUnica = new DataTable();
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -33,24 +34,31 @@ namespace Veterinario
 
             int idUserCitas = 0;
 
-            misCitas = conexion.getTodoCitasPorUser(dniUsuario); //Cogemos el valor de codigo cita y lo incrementamos
+            misCitas = conexion.getTodoCitasPorUser(dniUsuario); //Cogemos el último valor valor de codigo cita por usuario y lo incrementamos
+            fechaUnica = conexion.getFecha();
             idUserCitas = misCitas.Rows.Count;
             idUserCitas++;
-
-            if (conexion.insertaCita(codigo.Text, dniUsuario, fechaCita.Text, causa.Text, idUserCitas))
+            if ((fechaCita.Text) != (fechaUnica.Rows[0]["fecha"].ToString())) //Siempre que la cita no esté cogida ya.
             {
-                MessageBox.Show("Cita Añadida"); //Se añade la cita
-                this.Close();
-                PantallaPrincipal v = new PantallaPrincipal();
-                v.Show();
+                if (conexion.insertaCita(codigo.Text, dniUsuario, fechaCita.Text, causa.Text, idUserCitas))
+                {
+                    MessageBox.Show("Cita Añadida"); //Se añade la cita
+                    this.Close();
+                    PantallaPrincipal v = new PantallaPrincipal();
+                    v.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Error"); //Fallo
+                }
             }
             else
             {
-                MessageBox.Show("Error"); //Fallo
+                MessageBox.Show("La fecha elegida no está disponible, por favor cambie de fecha");
             }
         }
 
-        private void cancelar_Click(object sender, EventArgs e)
+        private void cancelar_Click(object sender, EventArgs e) //Vuelve
         {
             this.Close();
             PantallaPrincipal pantallaprincipal = new PantallaPrincipal();
