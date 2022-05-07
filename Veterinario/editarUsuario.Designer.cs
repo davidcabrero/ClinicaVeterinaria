@@ -39,6 +39,7 @@ namespace Veterinario
             this.button1 = new System.Windows.Forms.Button();
             this.UsuarioCliente = new System.Windows.Forms.Label();
             this.editContraseña = new System.Windows.Forms.TextBox();
+            this.botonCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // correoCliente
@@ -104,7 +105,7 @@ namespace Veterinario
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(302, 360);
+            this.button1.Location = new System.Drawing.Point(258, 360);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(176, 57);
             this.button1.TabIndex = 21;
@@ -129,12 +130,23 @@ namespace Veterinario
             this.editContraseña.Size = new System.Drawing.Size(345, 22);
             this.editContraseña.TabIndex = 18;
             // 
+            // botonCancelar
+            // 
+            this.botonCancelar.Location = new System.Drawing.Point(458, 367);
+            this.botonCancelar.Name = "botonCancelar";
+            this.botonCancelar.Size = new System.Drawing.Size(106, 42);
+            this.botonCancelar.TabIndex = 22;
+            this.botonCancelar.Text = "Cancelar";
+            this.botonCancelar.UseVisualStyleBackColor = true;
+            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
+            // 
             // editarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.editEmail);
             this.Controls.Add(this.editApellido);
@@ -163,5 +175,6 @@ namespace Veterinario
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label UsuarioCliente;
         private System.Windows.Forms.TextBox editContraseña;
+        private System.Windows.Forms.Button botonCancelar;
     }
 }

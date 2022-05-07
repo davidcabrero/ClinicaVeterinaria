@@ -14,6 +14,7 @@ namespace Veterinario
     public partial class VentanaRegistro : Form
     {
         Conexion conexion = new Conexion();
+        DataTable check = new DataTable();
         public VentanaRegistro()
         {
             InitializeComponent();
@@ -22,16 +23,31 @@ namespace Veterinario
 
         private void Registrarme_Click(object sender, EventArgs e)
         {
-                //Se encripta la contraseña en la bbdd.
-                String textoPassword = textBoxContraseña.Text;
-                string myHash = BCrypt.Net.BCrypt.HashPassword(textoPassword, BCrypt.Net.BCrypt.GenerateSalt());
-                if (conexion.insertaUsuario(textBoxDNI.Text, textBoxNombre.Text, textBoxApellido.Text, textBoxCorreoElectronico.Text, myHash))
+            check = conexion.comprobarRegistro();
+            if ((textBoxCorreoElectronico.Text) != (check.Rows[0]["email"].ToString())) //Siempre que el email no esté cogida ya.
+            {
+                if ((textBoxDNI.Text) != (check.Rows[0]["DNI"].ToString())) //Siempre que el dni/usuario no esté cogida ya.
                 {
-                    MessageBox.Show("Registro completado");
-                    this.Hide();
-                    VentanaLogin v = new VentanaLogin();
-                    v.Show();
+                    //Se encripta la contraseña en la bbdd.
+                    String textoPassword = textBoxContraseña.Text;
+                    string myHash = BCrypt.Net.BCrypt.HashPassword(textoPassword, BCrypt.Net.BCrypt.GenerateSalt());
+                    if (conexion.insertaUsuario(textBoxDNI.Text, textBoxNombre.Text, textBoxApellido.Text, textBoxCorreoElectronico.Text, myHash))
+                    {
+                        MessageBox.Show("Registro completado");
+                        this.Hide();
+                        VentanaLogin v = new VentanaLogin();
+                        v.Show();
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("El DNI introducido ya está registrado");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El email introducido ya está registrado");
+            }
         }
     }
 }

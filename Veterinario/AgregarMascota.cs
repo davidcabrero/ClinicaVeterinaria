@@ -21,6 +21,7 @@ namespace Veterinario
         Conexion conexion = new Conexion();
         DataTable misPerfiles = new DataTable();
         DataTable misIdMascota = new DataTable();
+        DataTable check = new DataTable();
 
         private void botonVolver_Click_1(object sender, EventArgs e)
         {
@@ -49,19 +50,26 @@ namespace Veterinario
             misIdMascota = conexion.getMascotasPorUser(dniUsuario); //Para guardar en un int el numero de la mascota del usuario
             idMascotaUser = misIdMascota.Rows.Count; //Se cuentan el número de mascotas del usuario
             idMascotaUser++; //Se suma una mascota al usuario
-
-            if (conexion.insertaMacota(codigoChip.Text, nombreMascota.Text, edadAnimal.Text, tipoAnimal.Text, observacionesAnimal.Text, dniUsuario, opcionSexo, idMascotaUser))
+            check = conexion.getAllMascotas();
+            if ((codigoChip.Text) != (check.Rows[0]["codigoChip"].ToString())) //Siempre que el codigoChip no esté cogida ya.
             {
-                MessageBox.Show("Mascota Añadida"); //Se añade la mascota
-                this.Close();
-                PantallaPrincipal v = new PantallaPrincipal();
-                v.Show();
-            }          
+                if (conexion.insertaMacota(codigoChip.Text, nombreMascota.Text, edadAnimal.Text, tipoAnimal.Text, observacionesAnimal.Text, dniUsuario, opcionSexo, idMascotaUser))
+                {
+                    MessageBox.Show("Mascota Añadida"); //Se añade la mascota
+                    this.Close();
+                    PantallaPrincipal v = new PantallaPrincipal();
+                    v.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Error"); //Fallo
+                }
+                conexion.insertaPerfil(idMascotaUser, dniUsuario); //Se cambia el numero de perfiles del usuario
+            }
             else
             {
-                MessageBox.Show("Error"); //Fallo
+                MessageBox.Show("El codigo del chip introducido ya se encuentra registrado. Introduce otro");
             }
-            conexion.insertaPerfil(idMascotaUser, dniUsuario); //Se cambia el numero de perfiles del usuario
         }
     }
 }

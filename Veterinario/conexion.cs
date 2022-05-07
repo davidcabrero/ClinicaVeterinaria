@@ -47,6 +47,24 @@ namespace Veterinario
             }
         }
 
+        public DataTable comprobarRegistro() //Para comprobar que el dni registrado no existe en la bbdd
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM usuario", conexion);
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable datos = new DataTable();
+                datos.Load(resultado);
+                conexion.Close();
+                return datos;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+
         //Registrar un nuevo usuario
         public Boolean insertaUsuario(String DNI, String Nombre, String Apellido, String email, String password) 
         {
@@ -101,6 +119,7 @@ namespace Veterinario
                 return false;
             }
         }
+
         public Boolean insertaPerfil(int numPerfil, String dniUsuario)
         {
             //Para añadir un perfil (mascota) al usuario y actualizar el número de mascotas
@@ -158,7 +177,7 @@ namespace Veterinario
             {
                 throw e;
             }
-        }
+        }      
 
         public Boolean insertaCita(String codigoMascota, String dni_usuario, String fecha, String causa, int idCitasUser)
         {
@@ -304,6 +323,23 @@ namespace Veterinario
                 throw e;
             }
         }
-    }
 
+        public DataTable getAllMascotas() //Sacar todos los datos de mascotas
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM mascota)", conexion);
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable datos = new DataTable();
+                datos.Load(resultado);
+                conexion.Close();
+                return datos;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+    }
 }
