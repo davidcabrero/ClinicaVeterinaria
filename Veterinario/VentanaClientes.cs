@@ -18,6 +18,8 @@ namespace Veterinario
         DataTable misIdCita = new DataTable();
         DataTable verCitas = new DataTable();
         DataTable verNombre = new DataTable();
+        DataTable userDatos = new DataTable();
+
         public PantallaPrincipal()
         {
             InitializeComponent();         
@@ -45,6 +47,13 @@ namespace Veterinario
 
             verNombre = conexion.getNombreCitasPorId(user, idCita);
             mascotaLabel.Text = verNombre.Rows[0]["nombre"].ToString();
+
+            //Se muestran los datos del usuario
+            userDatos = conexion.getDatosUsuario(user);
+            nameLabel.Text = userDatos.Rows[0]["Nombre"].ToString();
+            userLabel.Text = userDatos.Rows[0]["DNI"].ToString();
+            surnameLabel.Text = userDatos.Rows[0]["Apellido"].ToString();
+            emailLabel.Text = userDatos.Rows[0]["email"].ToString();
         }
 
         
@@ -116,7 +125,7 @@ namespace Veterinario
         private void antCita_Click(object sender, EventArgs e) //Mostrar cita anterior
         {
             misIdCita = conexion.getTodoCitasPorUser(dniUsuario); //Para guardar en un int el número de la cita del usuario
-            idCitaUser = misIdMascota.Rows.Count; //se cuenta el número de citas del usuario
+            idCitaUser = misIdCita.Rows.Count; //se cuenta el número de citas del usuario
             idCita--;
             if (idCita > 0)
             {
@@ -133,7 +142,7 @@ namespace Veterinario
         private void sigCita_Click(object sender, EventArgs e) //Mostrar siguiente cita
         {
             misIdCita = conexion.getTodoCitasPorUser(dniUsuario); //Para guardar en un int el numero de la cita del usuario
-            idCitaUser = misIdMascota.Rows.Count; //se cuenta el num de citas del usuario
+            idCitaUser = misIdCita.Rows.Count; //se cuenta el num de citas del usuario
             idCita++;
             if (idCita <= idCitaUser)
             {
@@ -145,6 +154,20 @@ namespace Veterinario
                 verNombre = conexion.getNombreCitasPorId(user, idCita);
                 mascotaLabel.Text = verNombre.Rows[0]["nombre"].ToString();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e) //Editar datos del usuario
+        {
+            this.Hide();
+            editarUsuario editarusuario = new editarUsuario();
+            editarusuario.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e) //Para que el usuario cierre sesión.
+        {
+            this.Close();
+            VentanaLogin v = new VentanaLogin();
+            v.Show();
         }
     }
 }

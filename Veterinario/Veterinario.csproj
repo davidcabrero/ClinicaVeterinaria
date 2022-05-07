@@ -99,6 +99,12 @@
       <DependentUpon>AgregarMascota.cs</DependentUpon>
     </Compile>
     <Compile Include="conexion.cs" />
+    <Compile Include="editarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editarUsuario.Designer.cs">
+      <DependentUpon>editarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentanaCitas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AgregarMascota.resx">
       <DependentUpon>AgregarMascota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editarUsuario.resx">
+      <DependentUpon>editarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaCitas.resx">
       <DependentUpon>VentanaCitas.cs</DependentUpon>
