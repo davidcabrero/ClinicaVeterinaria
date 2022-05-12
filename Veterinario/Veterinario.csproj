@@ -99,6 +99,18 @@
       <DependentUpon>AgregarMascota.cs</DependentUpon>
     </Compile>
     <Compile Include="conexion.cs" />
+    <Compile Include="EditarCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarCita.Designer.cs">
+      <DependentUpon>EditarCita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarObservaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarObservaciones.Designer.cs">
+      <DependentUpon>EditarObservaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="editarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +157,12 @@
     </Compile>
     <EmbeddedResource Include="AgregarMascota.resx">
       <DependentUpon>AgregarMascota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarCita.resx">
+      <DependentUpon>EditarCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarObservaciones.resx">
+      <DependentUpon>EditarObservaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editarUsuario.resx">
       <DependentUpon>editarUsuario.cs</DependentUpon>

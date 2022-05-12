@@ -22,6 +22,12 @@ namespace Veterinario
             fechaLabel.Text = "";
             causaLabel.Text = "";
             mascotaLabel.Text = "";
+            nombreLabel.Text = "";
+            codigoLabel.Text = "";
+            tipoLabel.Text = "";
+            edadLabel.Text = "";
+            sexoLabel.Text = "";
+            observacionesLabel.Text = "";
         }
 
         Conexion conexion = new Conexion();
@@ -175,12 +181,48 @@ namespace Veterinario
 
         private void editCita_Click(object sender, EventArgs e) //Editar la cita
         {
-
+            if (user.Text != null)
+            {
+                misIdCita = conexion.getTodoCitasPorUser(user.Text); //Para guardar en un int el numero de la cita del usuario
+                idCitaUser = misIdCita.Rows.Count; //se cuenta el num de citas del usuario
+                if (idCitaUser > 0) //Siempre que haya citas
+                {
+                    this.Hide();
+                    EditarCita editarcita = new EditarCita(idCita, user.Text);
+                    editarcita.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No hay cita para editar");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Busca un usuario antes");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e) //Editar las observaciones de la mascota
         {
-
+            if (userMasc != null)
+            {
+                misIdMascota = conexion.getMascotasPorUser(userMasc.Text); //Para guardar en un int el numero de la mascota del usuario
+                idMascotaUser = misIdMascota.Rows.Count; //Se cuentan el número de mascotas del usuario
+                if (idMascotaUser > 0) //Siempre que haya mascotas
+                {
+                    this.Hide();
+                    EditarObservaciones editarobservaciones = new EditarObservaciones(idActual, user.Text);
+                    editarobservaciones.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No hay observaciones para editar");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Busca un usuario antes");
+            }
         }
     }
 }

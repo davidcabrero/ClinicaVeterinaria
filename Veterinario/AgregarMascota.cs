@@ -56,7 +56,7 @@ namespace Veterinario
                 if (conexion.insertaMacota(codigoChip.Text, nombreMascota.Text, edadAnimal.Text, tipoAnimal.Text, observacionesAnimal.Text, dniUsuario, opcionSexo, idMascotaUser))
                 {
                     MessageBox.Show("Mascota Añadida"); //Se añade la mascota
-                    this.Close();
+                    this.Hide();
                     PantallaPrincipal v = new PantallaPrincipal();
                     v.Show();
                 }

@@ -47,7 +47,7 @@ namespace Veterinario
             }
         }
 
-        public Boolean loginTrabajador(String DNI, String password)
+        public Boolean loginTrabajador(String DNI, String password) //Inicio de sesión del trabajador
         {
             try
             {
@@ -159,6 +159,51 @@ namespace Veterinario
                 MySqlCommand consulta = new MySqlCommand("UPDATE usuario SET perfil = @numPerfil WHERE DNI = @dniUsuario", conexion); //datos a introducir.
                 consulta.Parameters.AddWithValue("@numPerfil", numPerfil);
                 consulta.Parameters.AddWithValue("@dniusuario", dniUsuario);
+
+                consulta.ExecuteNonQuery();
+
+                conexion.Close();
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                return false;
+            }
+        }
+
+        public Boolean editObservacion(int idActual, String observaciones, String usuario)
+        {
+            //Para editar la observación
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("UPDATE mascota SET observaciones = @observaciones WHERE idMascotaUser = @idActual AND dni_usuario = @usuario", conexion);
+                consulta.Parameters.AddWithValue("@idActual", idActual);
+                consulta.Parameters.AddWithValue("@observaciones", observaciones);
+                consulta.Parameters.AddWithValue("@usuario", usuario);
+
+                consulta.ExecuteNonQuery();
+
+                conexion.Close();
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                return false;
+            }
+        }
+
+        public Boolean editCita(String dni, String fecha, String causa, int idCitaEdit)
+        {
+            //Para editar la cita
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("UPDATE citas SET fecha = @fecha, causa = @causa WHERE idCitasUser = @idCitaEdit AND codigo_usuario = @dni", conexion);
+                consulta.Parameters.AddWithValue("@idCitaEdit", idCitaEdit);
+                consulta.Parameters.AddWithValue("@dni", dni);
+                consulta.Parameters.AddWithValue("@fecha", fecha);
+                consulta.Parameters.AddWithValue("@causa", causa);
 
                 consulta.ExecuteNonQuery();
 
