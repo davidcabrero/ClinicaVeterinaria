@@ -39,6 +39,8 @@ namespace Veterinario
             this.botonRegistrarse = new System.Windows.Forms.Button();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,7 +91,7 @@ namespace Veterinario
             // NoRegistro
             // 
             this.NoRegistro.AutoSize = true;
-            this.NoRegistro.Location = new System.Drawing.Point(111, 374);
+            this.NoRegistro.Location = new System.Drawing.Point(29, 378);
             this.NoRegistro.Name = "NoRegistro";
             this.NoRegistro.Size = new System.Drawing.Size(199, 17);
             this.NoRegistro.TabIndex = 5;
@@ -98,7 +100,7 @@ namespace Veterinario
             // botonRegistrarse
             // 
             this.botonRegistrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonRegistrarse.Location = new System.Drawing.Point(140, 396);
+            this.botonRegistrarse.Location = new System.Drawing.Point(58, 400);
             this.botonRegistrarse.Name = "botonRegistrarse";
             this.botonRegistrarse.Size = new System.Drawing.Size(143, 24);
             this.botonRegistrarse.TabIndex = 6;
@@ -128,12 +130,33 @@ namespace Veterinario
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // VentanalLogin
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(259, 401);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(143, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "ACCEDER";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(268, 378);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 17);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "¿Eres trabajador/a?";
+            // 
+            // VentanaLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(436, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.botonRegistrarse);
@@ -144,7 +167,7 @@ namespace Veterinario
             this.Controls.Add(this.LOGIN);
             this.Controls.Add(this.textBoxDNI);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "VentanalLogin";
+            this.Name = "VentanaLogin";
             this.Text = "LOGIN";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
@@ -163,6 +186,8 @@ namespace Veterinario
         private System.Windows.Forms.Button botonRegistrarse;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

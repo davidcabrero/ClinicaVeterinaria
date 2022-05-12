@@ -47,6 +47,36 @@ namespace Veterinario
             }
         }
 
+        public Boolean loginTrabajador(String DNI, String password)
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta =
+                    new MySqlCommand("SELECT * FROM trabajador WHERE DNI = @DNI ", conexion); //Se verifica que el dni de la bbdd coincide con el introducido
+                consulta.Parameters.AddWithValue("@DNI", DNI);
+                MySqlDataReader resultado = consulta.ExecuteReader();
+
+                if (resultado.Read())
+                {
+                    string passwordConHash = resultado.GetString("password"); //Se pasa la contraseña de la bbdd a string
+
+                    if (BCrypt.Net.BCrypt.Verify(password, passwordConHash)) //Se verifica que la contraseña introducida y la encriptada son la misma
+                    {
+                        return true;
+                    }
+
+                }
+
+                conexion.Close();
+                return false;
+            }
+            catch (MySqlException e)
+            {
+                return false; //No accede
+            }
+        }
+
         public DataTable comprobarRegistro() //Para comprobar que el dni registrado no existe en la bbdd
         {
             try
