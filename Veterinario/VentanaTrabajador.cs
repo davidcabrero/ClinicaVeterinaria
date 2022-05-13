@@ -17,19 +17,6 @@ namespace Veterinario
             InitializeComponent();
         }
 
-        private void VentanaTrabajador_Load(object sender, EventArgs e)
-        {
-            fechaLabel.Text = "";
-            causaLabel.Text = "";
-            mascotaLabel.Text = "";
-            nombreLabel.Text = "";
-            codigoLabel.Text = "";
-            tipoLabel.Text = "";
-            edadLabel.Text = "";
-            sexoLabel.Text = "";
-            observacionesLabel.Text = "";
-        }
-
         Conexion conexion = new Conexion();
         DataTable misMascotas = new DataTable();
         DataTable misIdMascota = new DataTable();
@@ -223,6 +210,24 @@ namespace Veterinario
             {
                 MessageBox.Show("Busca un usuario antes");
             }
+        }
+
+        //Cerrar sesión
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginTrabajador logintrabajador = new LoginTrabajador();
+            logintrabajador.Show();
+            MessageBox.Show("Se ha cerrado sesión");
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginTrabajador logintrabajador = new LoginTrabajador();
+            logintrabajador.Show();
+            MessageBox.Show("Se ha cerrado sesión");
         }
     }
 }

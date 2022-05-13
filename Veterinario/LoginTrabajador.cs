@@ -32,5 +32,12 @@ namespace Veterinario
                 MessageBox.Show("El usuario o contraseña introducido no es correcto"); //En el caso de no acceder
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VentanaLogin login = new VentanaLogin();
+            login.Show();
+        }
     }
 }

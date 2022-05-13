@@ -42,13 +42,15 @@ namespace Veterinario
             this.Registrarme = new System.Windows.Forms.Button();
             this.textBoxDNI = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // REGISTRO
             // 
             this.REGISTRO.AutoSize = true;
             this.REGISTRO.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.REGISTRO.Location = new System.Drawing.Point(102, 9);
+            this.REGISTRO.Location = new System.Drawing.Point(72, 9);
             this.REGISTRO.Name = "REGISTRO";
             this.REGISTRO.Size = new System.Drawing.Size(235, 48);
             this.REGISTRO.TabIndex = 0;
@@ -149,6 +151,16 @@ namespace Veterinario
             this.label1.TabIndex = 10;
             this.label1.Text = "DNI:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(313, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
             // VentanaRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -156,6 +168,7 @@ namespace Veterinario
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(441, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBoxDNI);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Registrarme);
@@ -174,6 +187,7 @@ namespace Veterinario
             this.Name = "VentanaRegistro";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "REGISTRO";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +207,6 @@ namespace Veterinario
         private System.Windows.Forms.Button Registrarme;
         private System.Windows.Forms.TextBox textBoxDNI;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

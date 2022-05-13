@@ -76,14 +76,6 @@ namespace Veterinario
             }
         }
 
-        
-        private void AñadirAnimal_Click(object sender, EventArgs e) //Se abre la ventana de añadir mascota
-        {
-            this.Hide();
-            AgregarMascota agregarmascota = new AgregarMascota();
-            agregarmascota.Show();
-        }
-
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -217,6 +209,28 @@ namespace Veterinario
             this.Hide();
             VentanaLogin v = new VentanaLogin();
             v.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e) //Para que el usuario cierre sesión.
+        {
+            this.Hide();
+            VentanaLogin v = new VentanaLogin();
+            v.Show();
+            MessageBox.Show("Se ha cerrado sesión correctamente");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e) //Añadir animal
+        {
+            this.Hide();
+            AgregarMascota agregarmascota = new AgregarMascota();
+            agregarmascota.Show();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e) //Abrir ventana para añadir cita
+        {
+            this.Hide();
+            VentanaCitas ventanacitas = new VentanaCitas();
+            ventanacitas.Show();
         }
     }
 }

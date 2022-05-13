@@ -41,12 +41,16 @@ namespace Veterinario
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxDNI
             // 
-            this.textBoxDNI.Location = new System.Drawing.Point(86, 251);
+            this.textBoxDNI.Location = new System.Drawing.Point(97, 251);
             this.textBoxDNI.Name = "textBoxDNI";
             this.textBoxDNI.Size = new System.Drawing.Size(254, 22);
             this.textBoxDNI.TabIndex = 0;
@@ -63,7 +67,7 @@ namespace Veterinario
             // 
             // textBoxContraseña
             // 
-            this.textBoxContraseña.Location = new System.Drawing.Point(86, 296);
+            this.textBoxContraseña.Location = new System.Drawing.Point(97, 296);
             this.textBoxContraseña.Name = "textBoxContraseña";
             this.textBoxContraseña.Size = new System.Drawing.Size(254, 22);
             this.textBoxContraseña.TabIndex = 2;
@@ -72,7 +76,7 @@ namespace Veterinario
             // 
             this.CORREOELECTRONICO.AutoSize = true;
             this.CORREOELECTRONICO.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CORREOELECTRONICO.Location = new System.Drawing.Point(83, 231);
+            this.CORREOELECTRONICO.Location = new System.Drawing.Point(94, 231);
             this.CORREOELECTRONICO.Name = "CORREOELECTRONICO";
             this.CORREOELECTRONICO.Size = new System.Drawing.Size(69, 17);
             this.CORREOELECTRONICO.TabIndex = 3;
@@ -82,7 +86,7 @@ namespace Veterinario
             // 
             this.CONTRASEÑA.AutoSize = true;
             this.CONTRASEÑA.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CONTRASEÑA.Location = new System.Drawing.Point(83, 276);
+            this.CONTRASEÑA.Location = new System.Drawing.Point(94, 276);
             this.CONTRASEÑA.Name = "CONTRASEÑA";
             this.CONTRASEÑA.Size = new System.Drawing.Size(96, 17);
             this.CONTRASEÑA.TabIndex = 4;
@@ -122,7 +126,7 @@ namespace Veterinario
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(154, 329);
+            this.button1.Location = new System.Drawing.Point(165, 329);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 31);
             this.button1.TabIndex = 8;
@@ -149,12 +153,34 @@ namespace Veterinario
             this.label1.TabIndex = 10;
             this.label1.Text = "¿Eres trabajador/a?";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(70, 296);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(21, 22);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(70, 251);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(21, 22);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            // 
             // VentanaLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(436, 450);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -170,6 +196,8 @@ namespace Veterinario
             this.Name = "VentanaLogin";
             this.Text = "LOGIN";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,6 +216,8 @@ namespace Veterinario
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
